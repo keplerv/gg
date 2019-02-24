@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+	
+	#https to http
+	RewriteCond %{HTTPS} ^on$
+	RewriteRule ^(.*)$ http://laravel5914110043.azurewebsites.net/$1 [NC,L,R]
+	
+	RewriteCond %{HTTP_HOST} ^laravel59141100435914110043.azurewebsites.net$ [NC,OR]
+	RewriteCond %{HTTP_HOST} ^http://laravel5914110043.azurewebsites.net$
+	RewriteCond %{REQUEST_URI} !public/
+	RewriteRule (.*) /public/$1 [L]
+</IfModule>
